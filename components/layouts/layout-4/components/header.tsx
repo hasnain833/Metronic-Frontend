@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+// import { SidebarSecondary } from './sidebar-secondary';
+import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
 import { toAbsoluteUrl } from '@/lib/helpers';
 import { Button } from '@/components/ui/button';
@@ -10,9 +13,6 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import { SidebarPrimary } from './sidebar-primary';
-import { SidebarSecondary } from './sidebar-secondary';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 
 export function Header() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -28,14 +28,14 @@ export function Header() {
       <div className="container flex items-center justify-between flex-wrap gap-3">
         <Link href="/layout-4">
           <img
-            src={toAbsoluteUrl('/media/app/mini-logo-gray.svg')}
-            className="dark:hidden min-h-[30px]"
-            alt=""
+            src={toAbsoluteUrl('/media/app/invictus_icon.png')}
+            className="dark:hidden h-7 w-7 min-h-[30px]"
+            alt="Invictus Connect"
           />
           <img
-            src={toAbsoluteUrl('/media/app/mini-logo-gray-dark.svg')}
-            className="hidden dark:block min-h-[30px]"
-            alt=""
+            src={toAbsoluteUrl('/media/app/invictus_icon_P.png')}
+            className="hidden dark:block h-7 w-7 min-h-[30px]"
+            alt="Invictus Connect"
           />
         </Link>
 
@@ -53,7 +53,7 @@ export function Header() {
             <SheetHeader className="p-0 space-y-0" />
             <SheetBody className="p-0 flex items-stretch shrink-0 overflow-y-auto">
               <SidebarPrimary />
-              <SidebarSecondary />
+              {/* <SidebarSecondary /> */}
             </SheetBody>
           </SheetContent>
         </Sheet>

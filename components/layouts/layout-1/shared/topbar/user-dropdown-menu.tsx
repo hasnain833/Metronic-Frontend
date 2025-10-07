@@ -102,7 +102,7 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
         <DropdownMenuSeparator />
 
         {/* Menu Items */}
-        <DropdownMenuItem asChild>
+        {/* <DropdownMenuItem asChild>
           <Link
             href="#"
             className="flex items-center gap-2"
@@ -110,8 +110,8 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
             <IdCard />
             Public Profile
           </Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem asChild>
+        </DropdownMenuItem> */}
+        {/* <DropdownMenuItem asChild>
           <Link
             href="#"
             className="flex items-center gap-2"
@@ -119,7 +119,7 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
             <UserCircle />
             My Profile
           </Link>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
         {/* My Account Submenu */}
         <DropdownMenuSub>
@@ -185,7 +185,7 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
           </DropdownMenuSubContent>
         </DropdownMenuSub>
 
-        <DropdownMenuItem asChild>
+        {/* <DropdownMenuItem asChild>
           <Link
             href="https://devs.keenthemes.com"
             className="flex items-center gap-2"
@@ -193,10 +193,10 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
             <SquareCode />
             Dev Forum
           </Link>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
 
         {/* Language Submenu with Radio Group */}
-        <DropdownMenuSub>
+        {/* <DropdownMenuSub>
           <DropdownMenuSubTrigger className="flex items-center gap-2 [&_[data-slot=dropdown-menu-sub-trigger-indicator]]:hidden hover:[&_[data-slot=badge]]:border-input data-[state=open]:[&_[data-slot=badge]]:border-input">
             <Globe />
             <span className="flex items-center justify-between gap-2 grow relative">
@@ -232,7 +232,21 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
               ))}
             </DropdownMenuRadioGroup>
           </DropdownMenuSubContent>
-        </DropdownMenuSub>
+        </DropdownMenuSub> */}
+
+        {/* Auth shortcuts */}
+        <DropdownMenuItem asChild>
+          <Link href="/layout-4/login" className="flex items-center gap-2">
+            <IdCard />
+            Login
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/layout-4/register" className="flex items-center gap-2">
+            <UserCircle />
+            Sign up
+          </Link>
+        </DropdownMenuItem>
 
         <DropdownMenuSeparator />
 

@@ -19,7 +19,7 @@ export function Main({ children }: { children: React.ReactNode }) {
   // Using the custom hook to set multiple CSS variables and class properties
   useBodyClass(`
     [--header-height:60px] 
-    [--sidebar-width:290px] 
+    [--sidebar-width:80px] 
     lg:overflow-hidden 
     bg-muted!
   `);
@@ -28,7 +28,7 @@ export function Main({ children }: { children: React.ReactNode }) {
     <div className="flex grow">
       {isMobileMode && <Header />}
 
-      <div className="flex flex-col lg:flex-row grow pt-(--header-height) lg:pt-0">
+      <div className="flex flex-col ml-0 lg:flex-row grow pt-(--header-height) lg:pt-0">
         {!isMobileMode && <Sidebar />}
 
         <div className="flex grow rounded-xl bg-background border border-input lg:ms-(--sidebar-width) mt-0 lg:mt-5 m-5">
@@ -44,7 +44,7 @@ export function Main({ children }: { children: React.ReactNode }) {
                       <StoreClientTopbar />
                     ) : (
                       <>
-                        <SearchDialog
+                        {/* <SearchDialog
                           trigger={
                             <Button
                               variant="ghost"
@@ -65,8 +65,8 @@ export function Main({ children }: { children: React.ReactNode }) {
                               <MessageSquareDot className="size-4.5!" />
                             </Button>
                           }
-                        />
-                        <Button
+                        /> */}
+                        {/* <Button
                           variant="outline"
                           className="hover:bg-background hover:[&_svg]:text-primary hover:text-primary ms-2.5 "
                           asChild
@@ -75,7 +75,7 @@ export function Main({ children }: { children: React.ReactNode }) {
                             <Download />
                             Export
                           </Link>
-                        </Button>
+                        </Button> */}
                       </>
                     )}
                   </>

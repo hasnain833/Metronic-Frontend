@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { AppsDropdownMenu } from '@/components/layouts/layout-1/shared/topbar/apps-dropdown-menu';
-import { ChatSheet } from '@/components/layouts/layout-1/shared/topbar/chat-sheet';
-import { UserDropdownMenu } from '@/components/layouts/layout-1/shared/topbar/user-dropdown-menu';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   BarChart3,
   Bell,
@@ -27,8 +26,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { AppsDropdownMenu } from '@/components/layouts/layout-1/shared/topbar/apps-dropdown-menu';
+import { ChatSheet } from '@/components/layouts/layout-1/shared/topbar/chat-sheet';
+import { UserDropdownMenu } from '@/components/layouts/layout-1/shared/topbar/user-dropdown-menu';
 
 interface MenuItem {
   icon: React.ComponentType<{ className?: string }>;
@@ -111,6 +111,8 @@ export function SidebarPrimary() {
   }, [viewportHeight]);
 
   const [selectedMenuItem, setSelectedMenuItem] = useState(menuItems[0]);
+  // Toggle to hide middle icon list while preserving space
+  const HIDE_MENU = true;
 
   useEffect(() => {
     menuItems.forEach((item) => {
@@ -132,14 +134,14 @@ export function SidebarPrimary() {
         >
           <Link href="/layout-4">
             <img
-              src={toAbsoluteUrl('/media/app/mini-logo-gray.svg')}
-              className="dark:hidden min-h-[30px]"
-              alt=""
+              src={toAbsoluteUrl('/media/app/invictus_icon.png')}
+              className="dark:hidden h-7 w-7 min-h-[30px]"
+              alt="Invictus Connect"
             />
             <img
-              src={toAbsoluteUrl('/media/app/mini-logo-gray-dark.svg')}
-              className="hidden dark:block min-h-[30px]"
-              alt=""
+              src={toAbsoluteUrl('/media/app/invictus_icon_P.png')}
+              className="hidden dark:block h-7 w-7 min-h-[30px]"
+              alt="Invictus Connect"
             />
           </Link>
         </div>
@@ -149,30 +151,34 @@ export function SidebarPrimary() {
             className="kt-scrollable-y-hover grow gap-2.5 shrink-0 flex ps-4 flex-col"
             style={{ height: `${scrollableHeight}px` }}
           >
-            {menuItems.map((item, index) => (
-              <Tooltip key={index}>
-                <TooltipTrigger asChild>
-                  <Button
-                    asChild
-                    variant="ghost"
-                    mode="icon"
-                    {...(item === selectedMenuItem
-                      ? { 'data-state': 'open' }
-                      : {})}
-                    className={cn(
-                      'shrink-0 rounded-md size-9',
-                      'data-[state=open]:bg-background data-[state=open]:border data-[state=open]:border-input data-[state=open]:text-primary',
-                      'hover:bg-background hover:border hover:border-input hover:text-primary',
-                    )}
-                  >
-                    <Link href={item.path}>
-                      <item.icon className="size-4.5!" />
-                    </Link>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="right">{item.tooltip}</TooltipContent>
-              </Tooltip>
-            ))}
+            {HIDE_MENU
+              ? menuItems.map((_, index) => (
+                  <div key={index} className="shrink-0 rounded-md size-9" />
+                ))
+              : menuItems.map((item, index) => (
+                  <Tooltip key={index}>
+                    <TooltipTrigger asChild>
+                      <Button
+                        asChild
+                        variant="ghost"
+                        mode="icon"
+                        {...(item === selectedMenuItem
+                          ? { 'data-state': 'open' }
+                          : {})}
+                        className={cn(
+                          'shrink-0 rounded-md size-9',
+                          'data-[state=open]:bg-background data-[state=open]:border data-[state=open]:border-input data-[state=open]:text-primary',
+                          'hover:bg-background hover:border hover:border-input hover:text-primary',
+                        )}
+                      >
+                        <Link href={item.path}>
+                          <item.icon className="size-4.5!" />
+                        </Link>
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent side="right">{item.tooltip}</TooltipContent>
+                  </Tooltip>
+                ))}
           </div>
         </div>
 
@@ -191,7 +197,7 @@ export function SidebarPrimary() {
               </Button>
             }
           />
-          <AppsDropdownMenu
+          {/* <AppsDropdownMenu
             trigger={
               <Button
                 variant="ghost"
@@ -201,7 +207,7 @@ export function SidebarPrimary() {
                 <LayoutGrid className="size-4.5!" />
               </Button>
             }
-          />
+          /> */}
           <UserDropdownMenu
             trigger={
               <img

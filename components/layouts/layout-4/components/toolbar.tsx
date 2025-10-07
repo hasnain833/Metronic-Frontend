@@ -1,10 +1,11 @@
 import { Fragment, ReactNode } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { MENU_SIDEBAR } from '@/config/layout-4.config';
 import { MenuItem } from '@/config/types';
+import { toAbsoluteUrl } from '@/lib/helpers';
 import { cn } from '@/lib/utils';
 import { useMenu } from '@/hooks/use-menu';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 
 export interface ToolbarHeadingProps {
   title?: string | ReactNode;
@@ -71,6 +72,41 @@ function ToolbarBreadcrumbs() {
   );
 }
 
+// Simple horizontal menu for landing-style navigation
+function ToolbarNav() {
+  const pathname = usePathname();
+
+  const items = [
+    { title: 'Home', path: '/layout-4' },
+    { title: 'How It Works', path: '#' },
+    { title: 'Features', path: '#' },
+    { title: 'Pricing', path: '#' },
+  ];
+
+  return (
+    <nav className="flex items-center gap-6 text-sm">
+      {items.map((item) => {
+        const active =
+          pathname === item.path || (item.path !== '/layout-4' && pathname.startsWith(item.path));
+        return (
+          <Link
+            key={item.path}
+            href={item.path}
+            className={cn(
+              'transition-colors border-b-2 border-transparent pb-0.5',
+              active
+                ? 'text-foreground font-medium border-current'
+                : 'text-secondary-foreground hover:text-primary hover:border-current'
+            )}
+          >
+            {item.title}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}
+
 const ToolbarHeading = ({ title = '' }: ToolbarHeadingProps) => {
   const pathname = usePathname();
   const { getCurrentItem } = useMenu(pathname);
@@ -78,8 +114,20 @@ const ToolbarHeading = ({ title = '' }: ToolbarHeadingProps) => {
 
   return (
     <div className="flex items-center flex-wrap gap-1 lg:gap-5">
-      <h1 className="font-medium text-lg text-mono">{title || item?.title}</h1>
-      <ToolbarBreadcrumbs />
+      {/* <h1 className="font-medium text-lg text-mono">{title || item?.title}</h1> */}
+      <Link href="/layout-4" >
+        <img
+          src={toAbsoluteUrl('/media/app/invictus_TBG.png')}
+          className="dark:hidden max-h-[50px]"
+          alt="Invictus Connect"
+        />
+        <img
+          src={toAbsoluteUrl('/media/app/invictus_TBG_P.png')}
+          className="hidden dark:block max-h-[50px]"
+          alt="Invictus Connect"
+        />
+      </Link>
+      {/* <ToolbarNav /> */}
     </div>
   );
 };
