@@ -236,13 +236,13 @@ export function UserDropdownMenu({ trigger }: { trigger: ReactNode }) {
 
         {/* Auth shortcuts */}
         <DropdownMenuItem asChild>
-          <Link href="/layout-4/login" className="flex items-center gap-2">
+          <Link href="/signin" className="flex items-center gap-2">
             <IdCard />
             Login
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/layout-4/register" className="flex items-center gap-2">
+          <Link href="/signup" className="flex items-center gap-2">
             <UserCircle />
             Sign up
           </Link>

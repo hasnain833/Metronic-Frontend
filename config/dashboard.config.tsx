@@ -16,8 +16,8 @@ export const MENU_SIDEBAR: MenuConfig = [
     title: 'Dashboards',
     icon: LayoutGrid,
     children: [
-      { title: 'Light Sidebar', path: '/layout-4' },
-      { title: 'Dark Sidebar', path: '/layout-4/dark-sidebar' },
+      { title: 'Light Sidebar', path: '/dashboard' },
+      { title: 'Dark Sidebar', path: '/dashboard/dark-sidebar' },
       { title: 'Empty Page', path: '#' },
     ],
   },

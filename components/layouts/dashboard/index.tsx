@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export function Layout4({ children }: { children: React.ReactNode }) {
+export function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <LayoutProvider>

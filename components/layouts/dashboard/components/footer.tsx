@@ -14,10 +14,10 @@ export function Footer() {
               target="_blank"
               className="text-secondary-foreground hover:text-primary"
             >
-              Keenthemes Inc.
+              Invictus Connect Inc.
             </a>
           </div>
-          <nav className="flex order-1 md:order-2 gap-4 font-normal text-sm text-muted-foreground">
+          {/* <nav className="flex order-1 md:order-2 gap-4 font-normal text-sm text-muted-foreground">
             <a
               href={generalSettings.docsLink}
               target="_blank"
@@ -53,7 +53,7 @@ export function Footer() {
             >
               License
             </a>
-          </nav>
+          </nav> */}
         </div>
       </div>
     </footer>

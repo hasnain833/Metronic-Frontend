@@ -1,8 +1,7 @@
 'use client';
 
-import { Layout4 } from '@/components/layouts/layout-4';
+import { DashboardLayout } from '@/components/layouts/dashboard';
 import { ReactNode, useEffect, useState } from 'react';
-
 import { ScreenLoader } from '@/components/screen-loader';
 
 export default function Layout({children}: {children: ReactNode}) {
@@ -22,8 +21,8 @@ export default function Layout({children}: {children: ReactNode}) {
   }
   
   return (
-    <Layout4>
+    <DashboardLayout>
       {children}
-    </Layout4>
+    </DashboardLayout>
   );
 }

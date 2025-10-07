@@ -34,7 +34,7 @@ export function Main({ children }: { children: React.ReactNode }) {
         <div className="flex grow rounded-xl bg-background border border-input lg:ms-(--sidebar-width) mt-0 lg:mt-5 m-5">
           <div className="flex flex-col grow kt-scrollable-y-auto lg:[--kt-scrollbar-width:auto] pt-5">
             <main className="grow" role="content">
-              {!pathname.includes('/layout-4/empty') && (
+              {!pathname.includes('/dashboard/empty') && (
               <Toolbar>
                 <ToolbarHeading />
 
@@ -71,7 +71,7 @@ export function Main({ children }: { children: React.ReactNode }) {
                           className="hover:bg-background hover:[&_svg]:text-primary hover:text-primary ms-2.5 "
                           asChild
                         >
-                          <Link href={'/layout-4/empty'}>
+                          <Link href={'/dashboard/empty'}>
                             <Download />
                             Export
                           </Link>

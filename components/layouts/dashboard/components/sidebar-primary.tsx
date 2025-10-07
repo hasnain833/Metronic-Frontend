@@ -39,55 +39,55 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   { icon: BarChart3, tooltip: 'Dashboard', path: '#', rootPath: '#' },
-  {
-    icon: UserCircle,
-    tooltip: 'Profile',
-    path: '#',
-    rootPath: '#',
-  },
-  {
-    icon: Settings,
-    tooltip: 'Account',
-    path: '#',
-    rootPath: '#',
-  },
-  {
-    icon: Users,
-    tooltip: 'Network',
-    path: '#',
-    rootPath: '#',
-  },
-  {
-    icon: ShoppingCart,
-    tooltip: 'Store - Client',
-    path: '#',
-    rootPath: '#',
-  },
-  {
-    icon: Shield,
-    tooltip: 'Authentication',
-    path: '#',
-    rootPath: '#',
-  },
-  {
-    icon: MessageSquare,
-    tooltip: 'Security Logs',
-    path: '#',
-    rootPath: '#',
-  },
-  {
-    icon: Bell,
-    tooltip: 'Notifications',
-    path: '#',
-    rootPath: '#',
-  },
-  {
-    icon: CheckSquare,
-    tooltip: 'ACL',
-    path: '#',
-    rootPath: '#',
-  },
-  { icon: Code, tooltip: 'API Keys', path: '#', rootPath: '' },
+  // {
+  //   icon: UserCircle,
+  //   tooltip: 'Profile',
+  //   path: '#',
+  //   rootPath: '#',
+  // },
+  // {
+  //   icon: Settings,
+  //   tooltip: 'Account',
+  //   path: '#',
+  //   rootPath: '#',
+  // },
+  // {
+  //   icon: Users,
+  //   tooltip: 'Network',
+  //   path: '#',
+  //   rootPath: '#',
+  // },
+  // {
+  //   icon: ShoppingCart,
+  //   tooltip: 'Store - Client',
+  //   path: '#',
+  //   rootPath: '#',
+  // },
+  // {
+  //   icon: Shield,
+  //   tooltip: 'Authentication',
+  //   path: '#',
+  //   rootPath: '#',
+  // },
+  // {
+  //   icon: MessageSquare,
+  //   tooltip: 'Security Logs',
+  //   path: '#',
+  //   rootPath: '#',
+  // },
+  // {
+  //   icon: Bell,
+  //   tooltip: 'Notifications',
+  //   path: '#',
+  //   rootPath: '#',
+  // },
+  // {
+  //   icon: CheckSquare,
+  //   tooltip: 'ACL',
+  //   path: '#',
+  //   rootPath: '#',
+  // },
+  // { icon: Code, tooltip: 'API Keys', path: '#', rootPath: '' },
 ];
 
 export function SidebarPrimary() {
@@ -112,7 +112,7 @@ export function SidebarPrimary() {
 
   const [selectedMenuItem, setSelectedMenuItem] = useState(menuItems[0]);
   // Toggle to hide middle icon list while preserving space
-  const HIDE_MENU = true;
+  const HIDE_MENU = false;
 
   useEffect(() => {
     menuItems.forEach((item) => {
@@ -132,7 +132,7 @@ export function SidebarPrimary() {
           ref={headerRef}
           className="hidden lg:flex items-center justify-center shrink-0"
         >
-          <Link href="/layout-4">
+          <Link href="/dashboard">
             <img
               src={toAbsoluteUrl('/media/app/invictus_icon.png')}
               className="dark:hidden h-7 w-7 min-h-[30px]"

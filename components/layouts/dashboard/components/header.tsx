@@ -26,7 +26,7 @@ export function Header() {
   return (
     <header className="flex lg:hidden items-center fixed z-10 top-0 start-0 end-0 shrink-0 bg-[var(--page-bg)] dark:bg-[var(--page-bg-dark)] h-[var(--header-height)]">
       <div className="container flex items-center justify-between flex-wrap gap-3">
-        <Link href="/layout-4">
+        <Link href="/dashboard">
           <img
             src={toAbsoluteUrl('/media/app/invictus_icon.png')}
             className="dark:hidden h-7 w-7 min-h-[30px]"

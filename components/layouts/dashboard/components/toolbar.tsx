@@ -1,7 +1,7 @@
 import { Fragment, ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { MENU_SIDEBAR } from '@/config/layout-4.config';
+import { MENU_SIDEBAR } from '@/config/dashboard.config';
 import { MenuItem } from '@/config/types';
 import { toAbsoluteUrl } from '@/lib/helpers';
 import { cn } from '@/lib/utils';
@@ -77,17 +77,17 @@ function ToolbarNav() {
   const pathname = usePathname();
 
   const items = [
-    { title: 'Home', path: '/layout-4' },
-    { title: 'How It Works', path: '#' },
-    { title: 'Features', path: '#' },
-    { title: 'Pricing', path: '#' },
+    { title: 'Dashboard', path: '/dashboard' },
+    // { title: 'How It Works', path: '#' },
+    // { title: 'Features', path: '#' },
+    // { title: 'Pricing', path: '#' },
   ];
 
   return (
     <nav className="flex items-center gap-6 text-sm">
       {items.map((item) => {
         const active =
-          pathname === item.path || (item.path !== '/layout-4' && pathname.startsWith(item.path));
+          pathname === item.path || (item.path !== '/dashboard' && pathname.startsWith(item.path));
         return (
           <Link
             key={item.path}
@@ -115,7 +115,7 @@ const ToolbarHeading = ({ title = '' }: ToolbarHeadingProps) => {
   return (
     <div className="flex items-center flex-wrap gap-1 lg:gap-5">
       {/* <h1 className="font-medium text-lg text-mono">{title || item?.title}</h1> */}
-      <Link href="/layout-4" >
+      {/* <Link href="/dashboard" >
         <img
           src={toAbsoluteUrl('/media/app/invictus_TBG.png')}
           className="dark:hidden max-h-[50px]"
@@ -126,8 +126,8 @@ const ToolbarHeading = ({ title = '' }: ToolbarHeadingProps) => {
           className="hidden dark:block max-h-[50px]"
           alt="Invictus Connect"
         />
-      </Link>
-      {/* <ToolbarNav /> */}
+      </Link> */}
+      <ToolbarNav />
     </div>
   );
 };
